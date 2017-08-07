@@ -1,5 +1,7 @@
-const keyPublishable = process.env.PUBLISHABLE_KEY
-const keySecret = process.env.SECRET_KEY
+
+const keyPublishable = pk_test_7fQwskkIwuWNEkWfcIyJZJKS
+const keySecret = sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF
+// these are the test keys on stripe
 
 const app = require("express")()
 const stripe = require("stripe")(keySecret)
@@ -25,4 +27,4 @@ app.post("/charge", (req, res) => {
   .then(charge => res.render("charge.pug"))
 })
 
-app.listen(4567)
+app.listen(4741)
