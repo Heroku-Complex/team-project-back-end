@@ -8,7 +8,6 @@ module.exports = require('lib/wiring/routes')
 .root('root#root')
 
 // standards RESTful routes
-.resources('examples')
 .resources('products')
 .resources('orders')
 
