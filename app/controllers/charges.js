@@ -1,63 +1,55 @@
 'use strict'
 
+// requirements
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
 const Charge = models.charge
-
-const express = require('express')
 const authenticate = require('./concerns/authenticate')
-const setUser = require('./concerns/set-current-user')
-const setModel = require('./concerns/set-mongoose-model')
-const keyPublishable = process.env.PUBLISHABLE_KEY
+// this secret key is given to us from stripe
 const keySecret = process.env.GLORIUS_SECRET_KEY
 const stripe = require('stripe')(keySecret)
-const bodyParser = require("body-parser")
 
-const index = (req, res, next) => {
-  Charge.find()
-    .then(charges => res.json({
-      charges: charges.map((e) =>
-        e.toJSON({ virtuals: true, user: req.user }))
-    }))
-    .catch(next)
-}
-
-const show = (req, res) => {
-  res.json({
-    charge: req.charge.toJSON({ virtuals: true, user: req.user })
-  })
-}
-
-const create = (req, res, next)  => {
+const create = (req, res, next) => {
+  // this data is given to us from the token from stripe
   stripe.customers.create({
+    // in your stripe dashboard, this is the displayed email as customer
     email: req.body.email,
+    // their card (it is hashed)
     card: req.body.id
   }, {
-  api_key: keySecret
-  // api_key: "sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF"
-})
+    // this is required for authentication
+    api_key: keySecret
+  })
   .then(customer => {
+    // the charge itself
     stripe.charges.create({
+      // the amount
       amount: req.body.amount,
-      description: "Sample Charge",
-      currency: "usd",
+      // the description isn't nescesary but great for us to see later on
+      description: 'Sample Charge',
+      currency: 'usd',
+      // hashed by stripe and placed in the token for us
       customer: customer.id
     }, {
-    api_key: keySecret
-    // api_key: "sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF"
-  })
+      // this is requried for authentication
+      api_key: keySecret
+    })
     .then(charge => {
-        res.send(charge)
-        Charge.create({
-          "stripeToken": charge.id,
-          "amount": charge.amount,
-          "_owner": req.user._id
-        })
-      })
-      .catch(err => {
-        res.status(500).send({error: "Your purchase has failed."})
+      res.send(charge)
+      // more of the charge itself
+      Charge.create({
+        // the token id (the credit card)
+        'stripeToken': charge.id,
+        // amount is always in cents
+        'amount': charge.amount,
+        '_owner': req.user._id
       })
     })
+    // error return
+      .catch(error => {
+        res.status(500).send({error: 'Your purchase has failed.'})
+      })
+  })
 }
 
 module.exports = controller({
