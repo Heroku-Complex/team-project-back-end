@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('project-three-api:error-handler')
+const debug = require('debug')('mudabish:error-handler')
 
 const errorHandler = (err, req, res, next) => {
   // jshint unused:false

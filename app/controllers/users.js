@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('project-three-api:users')
+const debug = require('debug')('mudabish:users')
 
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
