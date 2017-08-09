@@ -19,10 +19,10 @@ const chargeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
-    required: false
-  },
+  // description: {
+  //   type: String,
+  //   required: false
+  // },
   // owner reference
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
