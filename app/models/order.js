@@ -7,6 +7,15 @@ const orderSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  salesProof: {
+    type: {
+      id: String,
+      amount: Number,
+      currency: String,
+      status: String
+    },
+    required: false
+  },
   products: {
     type: [[mongoose.Schema.Types.ProductId, Number]]
   },
