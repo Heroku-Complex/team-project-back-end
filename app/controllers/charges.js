@@ -33,7 +33,8 @@ const create = (req, res, next)  => {
     email: req.body.email,
     card: req.body.id
   }, {
-  api_key: "sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF"
+  api_key: keySecret
+  // api_key: "sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF"
 })
   .then(customer => {
     stripe.charges.create({
@@ -42,7 +43,8 @@ const create = (req, res, next)  => {
       currency: "usd",
       customer: customer.id
     }, {
-    api_key: "sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF"
+    api_key: keySecret
+    // api_key: "sk_test_SJ6aCNdbEfjzHEwiZNsJPJmF"
   })
     .then(charge => {
         res.send(charge)
@@ -53,31 +55,12 @@ const create = (req, res, next)  => {
         })
       })
       .catch(err => {
-        res.status(500).send({error: "Purchase Failed"})
+        res.status(500).send({error: "Your purchase has failed."})
       })
     })
 }
 
-//
-// const create = (req, res, next) => {
-//   const charge = Object.assign(req.body.charge, {
-//     stripeToken: req.body.stripeToken,
-//     amount: req.body.amount,
-//     currency: 'usd',
-//     decription: 'Test data',
-//     _owner: req.user._id
-//   })
-//   Charge.create(charge)
-//     .then(charge =>
-//       res.status(201)
-//         .json({
-//           charge: charge.toJSON({ virtuals: true, user: req.user })
-//         }))
-//     .catch(next)
-
 module.exports = controller({
-  index,
-  show,
   create
 }, { before: [
   { method: authenticate }
