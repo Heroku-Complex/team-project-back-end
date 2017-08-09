@@ -8,7 +8,10 @@ const orderSchema = new mongoose.Schema({
     required: true
   },
   products: {
-    type: [[mongoose.Schema.Types.ProductId, Number]]
+    type: [{
+      product_id: mongoose.Schema.Types.ObjectId,
+      quantity: Number
+    }]
   },
   isOpen: {
     type: Boolean,
