@@ -9,7 +9,9 @@ const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
-  Order.find()
+  const id = req.user.id
+  // Order.find()
+  Order.find({_owner: id})
     .then(orders => res.json({
       orders: orders.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
@@ -39,7 +41,11 @@ const create = (req, res, next) => {
 const update = (req, res, next) => {
   delete req.body._owner  // disallow owner reassignment.
   req.order.update(req.body.order)
-    .then(() => res.sendStatus(204))
+    .then(() =>
+      res.sendStatus(204))
+        // .json({
+        //   order: req.order.toJSON({ virtuals: true, user: req.user })
+        // }))
     .catch(next)
 }
 
