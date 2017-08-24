@@ -1,17 +1,17 @@
 name,price,category,img_url,description,rating
-BadLands,10000,Location,,Dreary scenic views of constant plasma storms and funnel clouds.,4
-Tree Fort Endor,20,Location,,"On the Forest Moon of Endor, this is a fort built on the branch of a large, hollow tree.",3
-Citadel of Ricks,500000,Location,,The Citadel of Ricks is the secret headquarters where the Council of Ricks congregates.,5
-Heart of Gold,110,Space Craft,,Our only ship offering the Infinite Probablity Drive!,4
-Serenity,49,Space Craft,,A no-frills freighter with outstanding manueverability.,4
-Milenium Falcon,45,Space Craft,,The ship that made the Kessel Run in less than 12 parsecs!,4
-Vintage Cylon Raider,34,Space Craft,,This classic Star Fighter is a heavy hitter! Centurions not included.,4
-Lightsaber,3500,Weapon,,A classic design to bring balance to the Force and death to your enemies. Kyber crystal not included.,5
-Phaser,1200,Weapon,,Set it to stun? Sure. Set it to kill? Oh yes. This baby does it all.,5
-Noisy Cricket,9400,Weapon,,A big thing in a small package. Do not underestimate this weapon.,5
-Jaffa Staff,6125,Weapon,,Hit things. Shoot things. Twirl it. Throw it. If you buy it you can do whatever you want with it!,5
-Chainsword,2800,Weapon,,Fifty percent sword. Fifty percent chainsaw. Twenty percent carbon steel. Seventy three percent spikes. One hundred percent deadly.,5
-Kyber Crystal,17500,Mineral,,Power up your lightsaber with these powerful crystals. Green? Red? Purple? The choice is yours.,5
-Unobtanium,20000000,Mineral,,Mined fresh from Pandora and powerful enough to justify the destruction of a giant tree.,5
-Tritanium,50000,Mineral,,Tritanium. Like titanium but three times as strong.,5
-Kryptonite,66000,Mineral,,Simple. You kill the Superman.,5
+BadLands,10,Location,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,Dreary scenic views of constant plasma storms and funnel clouds.,4
+Tree Fort Endor,20,Location,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,"On the Forest Moon of Endor, this is a fort built on the branch of a large, hollow tree.",3
+Citadel of Ricks,50,Location,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,The Citadel of Ricks is the secret headquarters where the Council of Ricks congregates.,5
+Heart of Gold,11,Space Craft,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,Our only ship offering the Infinite Probablity Drive!,4
+Serenity,49,Space Craft,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,A no-frills freighter with outstanding manueverability.,4
+Milenium Falcon,45,Space Craft,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,The ship that made the Kessel Run in less than 12 parsecs!,4
+Vintage Cylon Raider,34,Space Craft,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,This classic Star Fighter is a heavy hitter! Centurions not included.,4
+Lightsaber,35,Weapon,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/lightsaber.jpg,A classic design to bring balance to the Force and death to your enemies. Kyber crystal not included.,5
+Phaser,12,Weapon,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/phaser.jpg,Set it to stun? Sure. Set it to kill? Oh yes. This baby does it all.,5
+Noisy Cricket,94,Weapon,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/cricket.jpg,A big thing in a small package. Do not underestimate this weapon.,5
+Jaffa Staff,61,Weapon,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/jaffa.jpg,Hit things. Shoot things. Twirl it. Throw it. If you buy it you can do whatever you want with it!,5
+Chainsword,28,Weapon,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/chainsword.jpg,Fifty percent sword. Fifty percent chainsaw. Twenty percent carbon steel. Seventy three percent spikes. One hundred percent deadly.,5
+Kyber Crystal,17,Mineral,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/kybercrystal.jpg,Power up your lightsaber with these powerful crystals. Green? Red? Purple? The choice is yours.,5
+Unobtanium,2,Mineral,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/unobtanium.jpg,Mined fresh from Pandora and powerful enough to justify the destruction of a giant tree.,5
+Tritanium,50,Mineral,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/default-no-image.png,Tritanium. Like titanium but three times as strong.,5
+Kryptonite,66,Mineral,https://raw.githubusercontent.com/Heroku-Complex/team-project-front-end/master/assets/images/kryptonite.jpg,Simple. You kill the Superman.,5
