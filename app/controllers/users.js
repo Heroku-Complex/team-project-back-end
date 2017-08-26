@@ -50,6 +50,7 @@ const signup = (req, res, next) => {
   getToken()
     .then(token => {
       user.token = token
+      user.admin = false
     })
     .then(() =>
       new User(user).save())

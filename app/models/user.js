@@ -14,6 +14,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  admin: {
+    type: Boolean,
+    required: true
+  },
+  adminToken: {
+    type: String,
+    required: false
+  },
   passwordDigest: String
 }, {
   timestamps: true,
