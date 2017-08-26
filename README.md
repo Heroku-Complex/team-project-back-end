@@ -266,6 +266,14 @@ Stripe is a third party api that handles and processes all credit card informati
 
 On the front, this token is then tacked on an amount, in cents only (for US dollars. If you are using a different currency, see Stripe docs for conversions). This token is then sent to us, processed (basically rebounded off our api) and hits the Stripe API through our own. The Client is then sent back data, essentially a copy of the token, on a successful payment. We then dissect that returned success and put it into a custom object to be stored in orders so anyone that had a dispute can see who the Stripe Id'ed person is, what the order was, how much, and solve any issue from there. The data should not be parsed by the developer, and should instead be built by the Stripe API. For questions on how to use Stripe, see the Stripe documentation.
 
+#### Admin
+
+Admin have the ability to update our products list. Admin can only add admin,
+currently through the backend. Here, a curl request with a admin user doing a
+PUT to another user will allow access to admin privilages. On the backend, the only advantage currently is curl requests to create users and create products, the later being vastly less fun then doing that on the front end.
+
+The admin allows the user to upload new products through the front end through the access of new menus available only through the admin user.
+
 ####
 
 Enjoy and start buying to our hearts desire....I mean your heart. You.
