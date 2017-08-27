@@ -281,7 +281,20 @@ admins as vendors and then use a third party to book keep and track what is bein
 
 Something to note is that ability of the admin to delete an item off the database. This is, to be noted, a terrible practice. This is, however, allowed in order to fit the "story" or theme of the website itself. The joy of this is when a user has an item deleted off the database, it will display as 'Harmless kittens' on the front end.
 
-Their is no curl request to create a new admin or update a user to an admin, as this is something that would only be done in the database itself through the terminal of the maintainer of the database, or through a dashboard (say heroku and their ability to modify individual documents through mLab for mongoDB). 
+Their is no curl request to create a new admin or update a user to an admin, as this is something that would only be done in the database itself through the terminal of the maintainer of the database, or through a dashboard (say heroku and their ability to modify individual documents through mLab for mongoDB).
+
+As a admin user, I would like to be able to:
+    * Create products with that fit the requirements of the product schema.
+    * Be able to disable the products that I sell without deleting them.
+    * Be able to delete my items off the database. (This one I would not actually include normally, but as the story behind Fencer is that we are selling 'acquired goods', a full delete is viable though not recommended).
+    * If a user purchased a deleted item, I want it to display something else in line with the story of Fencer.
+    * I want to be able to update my items in and see the effects of the update in real time.
+    * I want to see my creations uploaded in realtime.
+    * I do want to be able to see all my current products and be able to discern if my product is active or currently disabled.
+
+The wireframe for the admin menus are in the links below:
+  Main data table:https://goo.gl/photos/S6zNCtRkAexzF7GS6
+  Modals:https://goo.gl/photos/kZBjqYKqyr6knqfd6
 
 ####
 
