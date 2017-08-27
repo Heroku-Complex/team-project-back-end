@@ -24,29 +24,41 @@ const show = (req, res) => {
 }
 
 const create = (req, res, next) => {
-  const product = Object.assign(req.body.product, {
-    _owner: req.user._id
-  })
-  Product.create(product)
+  if (req.user.admin === true) {
+    const product = Object.assign(req.body.product, {
+      _owner: req.user._id
+    })
+    Product.create(product)
     .then(product =>
       res.status(201)
         .json({
           product: product.toJSON({ virtuals: true, user: req.user })
         }))
     .catch(next)
+  } else {
+    res.status(403)
+  }
 }
 
 const update = (req, res, next) => {
-  delete req.body._owner  // disallow owner reassignment.
-  req.product.update(req.body.product)
+  if (req.user.admin === true) {
+    delete req.body._owner  // disallow owner reassignment.
+    req.product.update(req.body.product)
     .then(() => res.sendStatus(204))
     .catch(next)
+  } else {
+    res.sendStatus(403)
+  }
 }
 
 const destroy = (req, res, next) => {
-  req.product.remove()
+  if (req.user.admin === true) {
+    req.product.remove()
     .then(() => res.sendStatus(204))
     .catch(next)
+  } else {
+    res.sendStatus(403)
+  }
 }
 
 module.exports = controller({

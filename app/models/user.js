@@ -18,10 +18,6 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     required: true
   },
-  adminToken: {
-    type: String,
-    required: false
-  },
   passwordDigest: String
 }, {
   timestamps: true,
@@ -49,6 +45,15 @@ userSchema.methods.comparePassword = function (password) {
         err ? reject(err) : data ? resolve(data) : reject(new Error('Not Authorized')))
     ).then(() => _this)
 }
+
+// userSchema.methods.checkAdmin = function (admin) {
+//   const _this = this
+//
+//   return new Promise((resolve, reject) =>
+//     bcrypt.compare(admin, _this.admin, (err, data) =>
+//         err ? reject(err) : data ? resolve(data) : reject(new Error('Not Authorized')))
+//     ).then(() => _this)
+// }
 
 userSchema.virtual('password').set(function (password) {
   this._password = password

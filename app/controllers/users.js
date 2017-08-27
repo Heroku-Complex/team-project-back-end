@@ -71,6 +71,13 @@ const signin = (req, res, next) => {
         user.token = token
         return user.save()
       }))
+    // .then(user =>
+    //   getToken().then(token => {
+    //     if (req.user.admin === true) {
+    //       user.adminToken = token
+    //     }
+    //     return user.save()
+    //   }))
     .then(user => {
       user = user.toObject()
       delete user.passwordDigest
@@ -108,6 +115,36 @@ const changepw = (req, res, next) => {
     res.sendStatus(204)
   ).catch(makeErrorHandler(res, next))
 }
+// Turn this into the put request for the change
+// const toggleadmin = (req, res, next) => {
+//   const adminId = req.body.update.id
+//   // const adminToken = req.body.update.token
+//   debug('Updating admin')
+//   User.findOne({
+//     _id: req.params.id,
+//     token: req.user.token,
+//     admin: req.user.admin
+//   })
+//   // .then(user =>
+//   //   user ? user.checkAdmin(req.body.admin)
+//   //     : Promise.reject(new HttpError(404))
+//   // )
+//   .then(user => {
+//     const currentAdmin = User.findOne({
+//       _id: adminId
+//     })
+//     if (currentAdmin.admin === false) {
+//       res.sendStatus(403)
+//     } else {
+//       if (user.admin === false) {
+//         user.admin = true
+//       }
+//     }
+//     return user.save()
+//   }).then((/* user */) =>
+//     res.sendStatus(204)
+//   ).catch(makeErrorHandler(res, next))
+// }
 
 module.exports = controller({
   index,
@@ -116,6 +153,7 @@ module.exports = controller({
   signin,
   signout,
   changepw
+  // toggleadmin
 }, { before: [
   { method: authenticate, except: ['signup', 'signin'] }
 ] })
