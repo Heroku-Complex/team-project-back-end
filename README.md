@@ -272,7 +272,16 @@ Admin have the ability to update our products list. Admin can only add admin,
 currently through the backend. Here, a curl request with a admin user doing a
 PUT to another user will allow access to admin privilages. On the backend, the only advantage currently is curl requests to create users and create products, the later being vastly less fun then doing that on the front end.
 
-The admin allows the user to upload new products through the front end through the access of new menus available only through the admin user.
+The admin allows the user to upload new products through the front end through the access of new menus available only through the admin user. No other admin
+can be allowed to touch and manipulate in anyway other admins products being
+pushed.
+
+These admins are actually more of individual sellers, and if the scope of this wasn't limited to what it is, then it would be prudent to set up each of these
+admins as vendors and then use a third party to book keep and track what is being sold and to whom and go through a bank to distribute the due money.
+
+Something to note is that ability of the admin to delete an item off the database. This is, to be noted, a terrible practice. This is, however, allowed in order to fit the "story" or theme of the website itself. The joy of this is when a user has an item deleted off the database, it will display as 'Harmless kittens' on the front end.
+
+Their is no curl request to create a new admin or update a user to an admin, as this is something that would only be done in the database itself through the terminal of the maintainer of the database, or through a dashboard (say heroku and their ability to modify individual documents through mLab for mongoDB). 
 
 ####
 
