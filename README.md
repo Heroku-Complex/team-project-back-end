@@ -266,6 +266,36 @@ Stripe is a third party api that handles and processes all credit card informati
 
 On the front, this token is then tacked on an amount, in cents only (for US dollars. If you are using a different currency, see Stripe docs for conversions). This token is then sent to us, processed (basically rebounded off our api) and hits the Stripe API through our own. The Client is then sent back data, essentially a copy of the token, on a successful payment. We then dissect that returned success and put it into a custom object to be stored in orders so anyone that had a dispute can see who the Stripe Id'ed person is, what the order was, how much, and solve any issue from there. The data should not be parsed by the developer, and should instead be built by the Stripe API. For questions on how to use Stripe, see the Stripe documentation.
 
+#### Admin
+
+Admin have the ability to update our products list. Admin can only add admin,
+currently through the backend. Here, a curl request with a admin user doing a
+PUT to another user will allow access to admin privilages. On the backend, the only advantage currently is curl requests to create users and create products, the later being vastly less fun then doing that on the front end.
+
+The admin allows the user to upload new products through the front end through the access of new menus available only through the admin user. No other admin
+can be allowed to touch and manipulate in anyway other admins products being
+pushed.
+
+These admins are actually more of individual sellers, and if the scope of this wasn't limited to what it is, then it would be prudent to set up each of these
+admins as vendors and then use a third party to book keep and track what is being sold and to whom and go through a bank to distribute the due money.
+
+Something to note is that ability of the admin to delete an item off the database. This is, to be noted, a terrible practice. This is, however, allowed in order to fit the "story" or theme of the website itself. The joy of this is when a user has an item deleted off the database, it will display as 'Harmless kittens' on the front end.
+
+Their is no curl request to create a new admin or update a user to an admin, as this is something that would only be done in the database itself through the terminal of the maintainer of the database, or through a dashboard (say heroku and their ability to modify individual documents through mLab for mongoDB).
+
+As a admin user, I would like to be able to:
+    * Create products with that fit the requirements of the product schema.
+    * Be able to disable the products that I sell without deleting them.
+    * Be able to delete my items off the database. (This one I would not actually include normally, but as the story behind Fencer is that we are selling 'acquired goods', a full delete is viable though not recommended).
+    * If a user purchased a deleted item, I want it to display something else in line with the story of Fencer.
+    * I want to be able to update my items in and see the effects of the update in real time.
+    * I want to see my creations uploaded in realtime.
+    * I do want to be able to see all my current products and be able to discern if my product is active or currently disabled.
+
+The wireframe for the admin menus are in the links below:
+  Main data table:https://goo.gl/photos/S6zNCtRkAexzF7GS6
+  Modals:https://goo.gl/photos/kZBjqYKqyr6knqfd6
+
 ####
 
 Enjoy and start buying to our hearts desire....I mean your heart. You.

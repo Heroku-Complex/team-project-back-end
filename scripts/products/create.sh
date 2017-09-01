@@ -16,6 +16,7 @@ curl "${API}${URL_PATH}" \
       "description": "'"${DESCRIPTION}"'",
       "img_url": "'"${IMG_URL}"'",
       "rating": "'"${RATING}"'"
+      "_owner": "'"${ID}"'"
     }
   }'
 
